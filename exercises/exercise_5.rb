@@ -10,13 +10,9 @@ puts "----------"
 # Your code goes here ...
 
 revenue = Store.sum(:annual_revenue)
+stores_avg = Store.average(:annual_revenue).to_i
+million_stores = Store.where("annual_revenue >= 1000000").count
 
-store_count = Store.count
-
-million_stores =  Store.where("annual_revenue < ?", 1000000).count
-
-puts revenue.inspect
-
-puts revenue/store_count
-
+puts revenue
+puts stores_avg
 puts million_stores
